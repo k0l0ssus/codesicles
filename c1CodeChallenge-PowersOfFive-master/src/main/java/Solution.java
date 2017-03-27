@@ -119,19 +119,22 @@ public class Solution {
                 if (initChar != '0') {
                     for (int i = knownPowers.size() - 1; i >= 0; i--) {
                         String nextKnownPower = knownPowers.get(i);
-                        boolean foundIndex = currentToken.startsWith(nextKnownPower);
+                        if (nextKnownPower.length() <= currentToken.length()) {
+                            boolean foundIndex = currentToken.startsWith(nextKnownPower);
 
-                        if (foundIndex) {
-                            ++powersOfFive;
-                            currentIndex += currentToken.indexOf(nextKnownPower) + nextKnownPower.length();
-                            break;
+                            if (foundIndex) {
+                                ++powersOfFive;
+                                currentIndex += currentToken.indexOf(nextKnownPower) + nextKnownPower.length();
+                                break;
+                            }
                         }
                     }
                 } else {
                     powersOfFive = -1;
                     break;
                 }
-            }
+             }
+          }
 
         }
 
