@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<basicFINRACommand>
+<retrieveMetadataCommandRequest>
+<fileId>ID-SIGINT-X-PC-50004-1500432587754-0-2</fileId>
+<metadataRequest>
+<metadataTitle>file_size</metadataTitle>
+<metadataValue>4000</metadataValue>
+</metadataRequest>
+</retrieveMetadataCommandRequest>
+</basicFINRACommand>
