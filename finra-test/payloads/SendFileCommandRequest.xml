@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<basicFINRACommand>
+<sendFileCommandRequest>
+<file>U2V0dGluZyBhIGZpbGU=</file>
+<metadata>
+<metadataTitle>SendDate</metadataTitle>
+<metadataValue>Tue Jul 18 21:06:48 EDT 2017</metadataValue>
+</metadata>
+<metadata>
+<metadataTitle>file_size</metadataTitle>
+<metadataValue>4000</metadataValue>
+</metadata>
+<metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+</sendFileCommandRequest>
+</basicFINRACommand>
