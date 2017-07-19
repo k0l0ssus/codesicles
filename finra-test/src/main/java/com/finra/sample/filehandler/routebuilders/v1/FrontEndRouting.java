@@ -31,7 +31,7 @@ public class FrontEndRouting extends RouteBuilder {
         
         jaxb.setContextPath("com.finra.sample.filehandler.dto.v1");
         restConfiguration().component("netty4-http").componentProperty("httpMethodRestrict", "DELETE").host("localhost").port(9000).bindingMode(RestBindingMode.auto);
-        rest("/finrauploads/").consumes("application/xml").post("/file/").type(BasicFINRACommand.class).route().unmarshal(jaxb)
+        rest("/finrauploads/v1/").consumes("application/xml").post("/file/").type(BasicFINRACommand.class).route().unmarshal(jaxb)
                 .bean("routingTransformer", "transform")
                 .choice()
                 .when(exchangeProperty("commandType").isEqualTo("SendFileCommandRequest"))
