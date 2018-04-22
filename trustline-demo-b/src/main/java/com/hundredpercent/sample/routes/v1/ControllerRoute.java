@@ -28,6 +28,7 @@ public class ControllerRoute extends RouteBuilder {
         
         from("cxfrs:?resourceClasses=" + TrustLineHandler.class.getName() + "&bindingStyle=SimpleConsumer&providers=#jacksonJsonProvider")
                     .routeId(ROUTE_ID)
+                    .bean("trustLineBalance")
                     .choice()
                         .when(simple("${header.operationName} == 'credit'")) //credit api endpoint was hit
                         .log("Request: ${body}")

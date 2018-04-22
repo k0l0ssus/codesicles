@@ -20,11 +20,12 @@ public class TrustLineCreditRequestProcessorRoute extends RouteBuilder {
         onException(Exception.class).logStackTrace(true);
         
         from("direct:trustline-credit-processor")
+                .log("Trustline balance is: ${exchangeProperty.trustLineBalance}")
                 .log("Validating request from ${header.clientId}")
                 .bean("requestValidator") //validate the request
-                .log("Processing trustline request from ${header.clientId} for ${body.value}")
                 .bean("requestProcessor","credit") //execute the credit
-                .log("Trustline credit request processed; new balance: ${exchangeProperty.trustLineBalance}")
+                .log("You were paid ${body.value}")
+                .log("Trustline balance is ${exchangeProperty.trustLineBalance}")
                 .bean("responseTransformer"); //build response object for outbound JSON
     }
 
