@@ -20,6 +20,8 @@ public class TrustLineDebitRequestProcessorRoute extends RouteBuilder {
     private String SERVICE_ID;
     @Value("${partner.port}")
     private String PARTNER_PORT;
+    @Value("${partner.id}")
+    private String PARTNER_ID;
     private final String ROUTE_ID = "trustline-debit-route";
     private final String SERVICE_ADDR = "localhost:";
 
@@ -28,11 +30,14 @@ public class TrustLineDebitRequestProcessorRoute extends RouteBuilder {
         from("direct:trustline-debit-processor").routeId(ROUTE_ID)
                                       .bean("debitRequestTransformer")
                                       .log("Processing trustline debit request from ${header.clientId} for ${body.value}")
+                                      .log("Trustline balance is: ${exchangeProperty.trustLineBalance}")
                                       .removeHeader(Exchange.HTTP_PATH)
                                       .setProperty(RouteConstants.TRANSFER_VALUE,simple("${body.value}"))
+                                      .log("Paying ${body.value} to"+PARTNER_ID)
                                       .to("cxfrs://http://"+SERVICE_ADDR+PARTNER_PORT+"/trustline-processor/trustline/"+SERVICE_ID+"/credit?httpClientAPI=true&providers=#jacksonJsonProvider")
                                       .bean("requestProcessor","debit") //execute debit operation
-                                      .log("Trustline debit request processed; new balance: ${exchangeProperty.trustLineBalance}")
+                                      .log("Sent")
+                                      .log("Trustline balance is: ${exchangeProperty.trustLineBalance}")
                                       .bean("debitResponseTransformer"); //prepare api response payload
         
     }
