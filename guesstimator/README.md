@@ -6,9 +6,9 @@ The Guesstimator server fields gameplay requests from the client programme and s
 # Starting the server
 
  1. Navigate to the filesystem directory into which you've unpacked the Guesstimator project
- 2. From within the parent folder, run the following command:
-
-    mvn exec:java -Dexec.mainClass=com.me.samples.guesstimate.resource.Main
+ 2. From within the parent folder, run the following command in order:
+    - mvn clean install
+    - mvn exec:java -Dexec.mainClass=com.me.samples.guesstimate.resource.Main
 
 This process will pull dependencies necessary to run the server
 
