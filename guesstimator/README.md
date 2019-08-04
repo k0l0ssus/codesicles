@@ -1,6 +1,6 @@
 # Welcome to the Guesstimator  {Server-Side}
 
-The Guesstimator server fields gameplay requests from the client programme and so needs to be running prior to any game requests. It runs on port 8080 and requires a functioning [Apache Maven](https://maven.apache.org/) installation
+The Guesstimator server fields gameplay requests from the client programme and so needs to be running prior to any game requests. It runs on port 8080 and requires a functioning [Apache Maven](https://maven.apache.org/) installation.
 
 
 # Starting the server
