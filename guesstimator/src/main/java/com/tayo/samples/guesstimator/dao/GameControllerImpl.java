@@ -7,6 +7,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.PriorityBlockingQueue;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -39,7 +40,7 @@ public class GameControllerImpl implements GameController {
 	private long answerUpperLimit = 100;
 
 	private Map<String, Game> games = new ConcurrentHashMap<>();
-	private Queue<Game> leaderBoard = new PriorityQueue<>();
+	private Queue<Game> leaderBoard = new PriorityBlockingQueue<>();
 
 	@Override
 	public Game startNewGame(GameStartRequest gameStartReq) {
